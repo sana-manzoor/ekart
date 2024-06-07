@@ -1,0 +1,32 @@
+
+<app-header></app-header>
+<h3 class="text-center">Wishlist Items</h3>
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5" *ngFor="let i of products">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" routerLink="/view/{{i.id}}" style="cursor: pointer;" src="{{i.image}}" alt="..." height="180px"/>
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{i.title}}</h5>
+                            <!-- Product price-->
+                            {{i.price | currency:'INR'}}
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <button class="btn btn-outline-dark" (click)="deleteWishList(i._id)"><i class="fa-solid fa-heart-circle-xmark"  style="color: #ec1387;"></i></button>
+                        <button class="btn btn-outline-dark" (click)="addCart(i)"><i class="fa-solid fa-cart-plus fa-lg"></i></button>
+                    </div>
+                  
+                </div>
+               
+            </div>
+    
+        </div>
+    </div>
+</section>
+
